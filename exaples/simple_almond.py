@@ -1,10 +1,3 @@
-# Almond 
-
-Almond - это фреймворк для динамической подстановки аргументов в объекты.
-
-## Пример
-
-```python
 from almond.builder import xbuild
 from almond.producer import StaticAlmondProducer
 from almond.resolver import AlmondContext
@@ -33,11 +26,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
-
-Запустив этот код, вы увидите следующий вывод:
-
-```
-want_this: 12
-and_this: False
-```
