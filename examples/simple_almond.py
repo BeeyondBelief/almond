@@ -1,12 +1,14 @@
+import random
+
 from almond.builder import xbuild
-from almond.producer import StaticAlmondProducer
+from almond.producer import StaticAlmondProducer, DynamicAlmondProducer
 from almond.resolver import AlmondContext
 from almond.support import Almond, AlmondSupport
 
 
 class WhatIsUp(AlmondSupport):
     want_this: Almond[int]
-    and_this: Almond[bool]
+    and_this: Almond[float]
 
     def is_up(self):
         print(f"want_this: {self.want_this}")
@@ -16,7 +18,7 @@ class WhatIsUp(AlmondSupport):
 def main():
     context: AlmondContext = {
         int: StaticAlmondProducer(12),
-        bool: StaticAlmondProducer(False),
+        float: DynamicAlmondProducer(random.random),
     }
     WhatIsUp.compile(context)
 

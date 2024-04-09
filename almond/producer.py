@@ -1,5 +1,5 @@
 import abc
-from typing import Generator, Generic, TypeVar
+from typing import Generator, Generic, TypeVar, Callable
 
 T = TypeVar('T')
 
@@ -15,3 +15,11 @@ class StaticAlmondProducer(AlmondProducer[T], Generic[T]):
 
     def __call__(self) -> Generator[T, None, None]:
         yield self.gen_val
+
+
+class DynamicAlmondProducer(AlmondProducer[T], Generic[T]):
+    def __init__(self, gen: Callable[[], T]) -> None:
+        self.gen = gen
+
+    def __call__(self) -> Generator[T, None, None]:
+        yield self.gen()
