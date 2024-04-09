@@ -4,7 +4,7 @@ from typing import Any, ClassVar, Dict, List, Tuple, TypeVar
 
 from typing_extensions import Annotated
 
-from .resolver import AlmondContext, AlmondSpec, resolve
+from almond.resolver import AlmondContext, AlmondSpec, resolve
 
 if sys.version_info >= (3, 8):
     def _get_type_hints(cls: object) -> Dict[str, Any]:
