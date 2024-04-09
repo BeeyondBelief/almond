@@ -5,6 +5,7 @@ from almond.support import AlmondSupport
 
 F = TypeVar('F', bound=AlmondSupport)
 
+
 @contextlib.contextmanager
 def xbuild(x: Type[F]) -> ContextManager[F]:
     _active_generators: List[Generator[Any, None, None]] = []
