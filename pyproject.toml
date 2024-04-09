@@ -16,4 +16,5 @@ classifiers = [
 ]
 
 dependencies = [
+    "typing_extensions~=4.7"
 ]
